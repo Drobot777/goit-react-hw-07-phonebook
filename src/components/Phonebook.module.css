@@ -1,0 +1,50 @@
+
+.form{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+
+}
+.label{
+    display: flex;
+    flex-direction: column;
+}
+.span{
+    display: block;
+    color: black;
+    font-size: larger;
+    margin-bottom: 10px;
+}
+.inputname{
+    width: 300px;
+    padding: 5px;
+    margin-bottom: 40px;
+}
+.button{
+    display: block;
+    max-width: 100px;
+    padding: 5px;
+}
+.contacts{
+    text-align: center;
+}
+.list{
+ 
+    font-size: 20px;
+    font-weight: 400;
+}
+.ul{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0;
+    align-items: center;
+  
+    min-width: 400px;
+   
+
+}
