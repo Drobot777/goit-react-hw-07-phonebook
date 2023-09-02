@@ -1,7 +1,7 @@
 import css from './Phonebook.module.css';
-import {nanoid} from 'nanoid';
+// import {nanoid} from 'nanoid';
 import {useDispatch, useSelector} from 'react-redux';
-import {addPhone, selectContactsDetails} from 'redux/reducer';
+import {addContact, selectContactsDetails} from 'redux/reducer';
 
 export const Phonebook = () => {
   const contacts = useSelector (selectContactsDetails);
@@ -24,10 +24,10 @@ export const Phonebook = () => {
       return alert ('Rosie Simpson is already in contacts');
     }
     return dispath (
-      addPhone ({
+      addContact ({
         name: name,
-        id: nanoid (),
-        tel: tel,
+    
+        phone: tel,
       })
     );
   };

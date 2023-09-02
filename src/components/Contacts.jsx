@@ -1,20 +1,25 @@
 import css from './Contacts.module.css';
 import {useDispatch} from 'react-redux';
 import {useSelector} from 'react-redux/es/hooks/useSelector';
+import {ColorRing} from 'react-loader-spinner';
 import {
   selectContactsDetails,
-  deletePhone,
   selectFilterDetails,
+  deleteContact,
+  selectIsLoading,
+  selectError,
 } from 'redux/reducer';
 
 export const Contacts = () => {
   const contacts = useSelector (selectContactsDetails);
   const valueFilter = useSelector (selectFilterDetails);
+  const load = useSelector (selectIsLoading);
+  const error = useSelector (selectError);
   const dispath = useDispatch ();
 
   const deleteContacts = e => {
     let idToDelete = e.currentTarget.id;
-    dispath (deletePhone (idToDelete));
+    dispath (deleteContact (idToDelete));
   };
 
   const filterItems = ary => {
@@ -62,8 +67,22 @@ export const Contacts = () => {
   };
 
   return (
-    <u className={css.item}>
-      {renderContacts (contacts)}
-    </u>
+    <div>
+      {load
+        ? <ColorRing
+            visible={true}
+            height="80"
+            width="80"
+            ariaLabel="blocks-loading"
+            wrapperStyle={{}}
+            wrapperClass="blocks-wrapper"
+            colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+          />
+        : <u className={css.item}>
+            {renderContacts (contacts)}
+          </u>}
+
+      {error && <p>{error}</p>}
+    </div>
   );
 };
